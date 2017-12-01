@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/animate.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div id="wrap">
+		<div class="music">
+			<div class=""></div>
+			<img id="music_btn" class="animated rotateOut infinite" src="img/music.png" alt="">
+			<audio id="music_bg" src="source/Zara Larsson,Clean Bandit - Symphony.flac" autoplay></audio>
+		</div>
+		<div class="page page1">
+			<div class="delay-time kuang kuang1 animated fadeIn"></div>
+			<div class="delay-time kuang kuang2 animated fadeIn"></div>
+			<div class="delay-time kuang kuang3 animated fadeIn"></div>
+			<img class="img-1" src="img/2.gif" alt="">
+			<p class="p-1 animated fadeIn">个人简历</p>
+			<p class="p-2 animated fadeIn">翻开页面了解我……</p>
+		</div>
+		<div class="page page2 pageDown bgg hide">
+			
+			<img class="img-2" src="img/1.gif" alt="">
+			<div class="img-3 animated zoomIn hide">	
+				<img class="delay-time" src="img/5.gif" alt="">
+			</div>
+			<div class="jieshao animated bounceInDown hide">
+				<div class="li-1">2018年毕业于升华中专，计算机专业</div>
+				<div class="li-2">王世龙</div>
+				<div class="li-3">Web前端</div>
+				<div class="li-4">18岁</div>
+				<div class="li-5">喜欢音乐</div>
+			</div>
+		</div>
+		<div class="page page3 pageDown bg bg-1 hide">
+		
+				<div class="delay-time div-1 animated rotateIn hide">我的简介</div>
+				<div class="div-2 animated zoomIn hide">      
+				我是升华中专2018年毕业生，在理论合实践中掌握了各项专业技能。<br><br>
+				本人性格内敛，待人真诚，善于与人相处，工作有上进心，团队合作中能起到骨干作用。工作中我善于总结工作经验，善于学习新的知识。<br><br>
+				如果我有幸倍贵公司录用，我将竭尽全力为贵单位创造效益，尽力体现自身能力合价值。
+				</div>
+			
+			
+		</div>
+		<div class="page page4 pageDownbg bg-2 hide">
+		
+				<div class="delay-time div-1 animated rotateIn hide">联系方式</div>
+				<div class="div-2 animated zoomIn hide">
+				Phone:13313352788<br><br><br><br>
+				Mail:13313352788@163.com<br><br><br><br>
+				QQ:1074255583<br><br><br><br>
+				</div>
+			
+		</div>
+		<div class="page page5 pageDown bg bg-3 hide">
+			
+				<div class="div-1 delay-time animated rotateIn hide">求职意向</div>
+				<div class="div-2 animated zoomIn hide">
+					期待职位：Web前端开发<br><br><br><br>
+					期待薪资：5k-7k <br><br><br><br>我期望：有一个对口的平台，能将我的个人能力最大的展现<br><br><br><br>
+					我坚信：凭着我的努力，和与大家的共同协作，能创造一个辉煌
+				</div>
+			
+		</div>
+		<div class="page page6 pageDown bg bg-4 hide">
+			
+				<div class="delay-time div-1 animated rotateIn hide">请联系我</div>
+				<div class="div-2 animated zoomIn hide">        如果你觉得我符合你的招聘条件，请联系我，我相信面谈一次会让你更快的做出决定！</div>
+				<div class="div-3 delay-time animated bounceInUp hide">
+					<img src="img/22.gif" alt="">
+				</div>
+			
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript" src="js/touch-0.2.14.min.js"></script>
+<script type="text/javascript" src="js/fx.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+	var MUS=$('#music_bg').get(0);
+	touch.on('#music_btn','tap',function(){
+		if(	MUS.paused){
+			$("#music_btn").addClass("animated");
+			MUS.play();	
+		}else{
+			$("#music_btn").removeClass("animated");
+			MUS.pause();
+	
+		}
+	})
+
+
+
+
+
+
+
+ 
+	var pageIndex = 0 ; 
+	var pageNum = $(".page").length-1;
+
+		console.log(pageNum);
+
+	touch.on('#wrap','swipeup',function(){
+
+
+
+		if(pageIndex < pageNum){
+
+
+			$(".page").eq(pageIndex).addClass('pageUp');
+			$(".page").eq(pageIndex).find('div').addClass('hide');
+			$(".page").eq(pageIndex).addClass('hide');
+			pageIndex = pageIndex + 1;
+
+
+			$(".page").eq(pageIndex).removeClass('pageDown');
+			$(".page").eq(pageIndex).find('div').removeClass('hide')
+			$(".page").eq(pageIndex).removeClass('hide')
+		}
+
+
+
+	})
+
+	touch.on('#wrap','swipedown',function(){
+
+		if(pageIndex > 0){		
+			$(".page").eq(pageIndex).addClass('pageDown');
+			$(".page").eq(pageIndex).find('div').addClass('hide');
+			$(".page").eq(pageIndex).addClass('hide');
+			pageIndex = pageIndex - 1;
+			$(".page").eq(pageIndex).removeClass('pageUp');
+			$(".page").eq(pageIndex).find('div').removeClass('hide')
+			$(".page").eq(pageIndex).removeClass('hide')
+		}
+
+	})
+}
+</script>
+</html>
